@@ -1,0 +1,5 @@
+flask
+chromadb
+pandas
+openai
+python-dotenv
