@@ -11,8 +11,6 @@ It demonstrates how to retrieve semantically relevant text reviews from a small 
 **Source:** Kaggle
 
 ### Why this dataset
-
-The main challenge was to select a dataset that is:  
 - **Semantically meaningful**, allowing natural-language search.  
 - **Free and publicly available** to ensure reproducibility.  
 
@@ -31,7 +29,7 @@ For example:
 - *“Find reviews about candy that’s too sweet”* :returns reviews about excessive sweetness.  
 - *“Show opinions about product quality”* : retrieves reviews mentioning satisfaction or disappointment.  
 
-This aligns with the **essence of RAG systems** — capturing *meaning* rather than literal keyword matches.
+I chose to extract a small subset from a large rather than using an obscure small one, to ensure data quality, credibility, and real world linguistic diversity while still keeping the project lightweight.
 
 ---
 
@@ -58,7 +56,6 @@ ChromaDB provides the perfect sandbox for this — minimal setup, fast results, 
 ## 3. Embedding Model
 
 **Model:** `text-embedding-3-small` 
-
 ### Why this model
 - High semantic accuracy with minimal cost.  
 - 1536-dimensional vectors, sufficient for nuanced text representation.  
@@ -72,13 +69,9 @@ This model allows:
 - **Accurate retrieval** for short sentences.  
 - **Minimal expenses** (far below the $1 limit).  
 - **Reusable embeddings** – generated once and cached locally.  
-
-This demonstrates practical deployment thinking: low-latency, low-cost, and high semantic quality.
-
 ---
 
 ## 4. RAG Retrieval Pipeline
-
 ### Chunking Strategy
 
 Each review is already short, so each one was treated as **a single semantic chunk** — preserving coherence and simplifying retrieval.
@@ -155,3 +148,4 @@ To test the system, use short, meaningful queries in the search box, such as:
 ## 8. Summary and Reflection
 
 By focusing on clarity and justification over complexity, the solution meets all technical and reasoning requirements of the **SoluGen AI RAG Retrieval Assignment**.
+
