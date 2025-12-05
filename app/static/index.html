@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Retrieval Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1> Review Retrieval System (RAG)</h1>
+    <p>Enter a query to retrieve semantically similar reviews.</p>
+
+    <!-- Form -->
+    <form method="POST">
+      <input type="text" name="query" placeholder="Type your query (e.g. sweet candy)" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Results -->
+    {% if query %}
+      <h2>Results for "{{ query }}"</h2>
+
+      {% if results %}
+        <ul>
+          {% for r in results %}
+            <li>
+              <strong>Rank {{ r.rank }}</strong> | Distance: {{ r.distance }}<br>
+               {{ r.text | safe }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No relevant reviews found.</p>
+      {% endif %}
+    {% endif %}
+  </div>
+</body>
+</html>
